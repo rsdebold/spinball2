@@ -37,13 +37,24 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
+        $(function() {
+            console.log('function start');
+        });
+        $( document ).on( "pagecontainerchange", function( e ) {
+            var page = $( ".ui-page-active" ).attr('id');
+            console.log('app.js-pagecontainerchange-' + page);
+        });
+        $( document ).on( "pagecontainerhide", function( e, ui ) {
+            var page = e.target.id;
+            console.log('pagecontainerhide: ' + page);
+        });
+        $( document ).on( "pagecreate", function( e ) {
+            var page = e.target.id;
+            console.log('pagecreate: ' + page);
+        });
+        $( document ).on( "pagecontainershow", function( event ) {
+            console.log('pagecontainershow');
+        });
     }
 };
