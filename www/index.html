@@ -61,15 +61,84 @@
         <title>Spinball</title>
 </head>
 
-<body>
-    <div class="app">
-        <h1>Spinball</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+<body data-enhance="false">
+    <div data-enhance="false" class="ui red top fixed fluid borderless inverted menu">
+        <a data-enhance="false" href="#home" class="item"><i data-enhance="false" class="home icon"></i></a>
+        <div class="header item">Spinball Sports iPitch</div>
+        <div class="right menu">
+            <a href="#settings" class="item"><i class="settings icon"></i></a>
         </div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
+    <div data-role="page" id="init">
+        <div class="ui text">
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
+                <div class="ui icon info message">
+                    <div class="content">
+                        <div class="header">
+                        Device Initialization
+                        </div>
+                        <div id="init-list" class="ui list">
+                            <div class="item">
+                                <div class="content">Loading machine settings...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="page" id="home">
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
+                home page
+            </div>
+        </div>
+        <div data-role="page" id="ipitch">
+                <h2 class="ui header">&nbsp;</h2>
+                <div class="ui fluid basic segment">
+                ipitch page
+            </div>
+        </div> 
+        <div data-role="page" id="definepitcher">
+                <h2 class="ui header">&nbsp;</h2>
+                <div class="ui fluid basic segment">
+                define pitcher
+            </div>
+        </div>
+        <div data-role="page" id="pitchcreator">
+                <h2 class="ui header">&nbsp;</h2>
+                <div class="ui fluid basic segment">
+                pitch creator
+            </div>
+        </div>
+        <div data-role="page" id="teamdef">
+                <h2 class="ui header">&nbsp;</h2>
+                <div class="ui fluid basic segment">
+                team defense
+            </div>
+        </div>
+        <div data-role="page" id="playerdef">
+                <h2 class="ui header">&nbsp;</h2>
+                <div class="ui fluid basic segment">
+                player defense
+            </div>
+            </div>
+        <div data-role="page" id="settings">
+                <h2 class="ui header">&nbsp;</h2>
+                <div class="ui fluid basic segment">
+                settings page
+            </div>
+        </div>
+                        
+        <div class="ui red fluid five item bottom fixed inverted menu">
+            <a href="#ipitch" class="item">iPitcher</a>
+            <a href="#definepitcher" class="item">Define Pitcher</a>
+            <a href="#pitchcreator" class="item">Pitch Creator</a>
+            <a href="#teamdef" class="item">Team Defense</a>
+            <a href="#playerdef" class="item">Player Defense</a>
+        </div>    
+        <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
