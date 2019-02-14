@@ -63,8 +63,8 @@
 
 <body data-enhance="false">
     <div data-enhance="false" class="ui red top fixed fluid borderless inverted menu">
-        <a data-enhance="false" href="#home" class="item"><i data-enhance="false" class="home icon"></i></a>
-        <div class="header item">Spinball Sports iPitch</div>
+        <a href="#home" class="item"><i data-enhance="false" class="home icon"></i></a>
+        <h3 class="header item">Spinball Sports iPitch</h3>
         <div class="right menu">
             <a href="#settings" class="item"><i class="settings icon"></i></a>
         </div>
@@ -91,8 +91,22 @@
     <div data-role="page" id="home">
             <h2 class="ui header">&nbsp;</h2>
             <div class="ui fluid basic segment">
-                home page
+                <div class="ui warning message">
+                    <div class="ui header">
+                        <i class="exclamation triangle icon"></i>
+                        <div class="content">
+                            Before using the Spinball pitching machine please adhere to the following warnnings
+                        </div>
+                    </div>
+                    <ul class="list">
+                        <li>Calibrate Spinball pitching machine before first use or whenever the Spinball pitching machine has been moved</li>
+                        <li>Always throw test pitches to make sure the Spinball pitching machine is throwing strikes before allowing a batter to hit</li>
+                        <li>The Spinball pitching machine will throw both balls and strikes. Batters must always wear a helmet when hitting picthes thrown by the Spinball pitching machine</li>
+                        <li>For best accuracy when using the Spinball pitching machine do not mix types or quality of balls being thrown by the Spinball pitchign machine</li>
+                    </ul>
+                </div>               
             </div>
+            <button class="fluid positive ui button">Connect to iPitchxx accesspoint</button>
         </div>
         <div data-role="page" id="ipitch">
                 <h2 class="ui header">&nbsp;</h2>
@@ -132,11 +146,11 @@
         </div>
                         
         <div class="ui red fluid five item bottom fixed inverted menu">
-            <a href="#ipitch" class="item">iPitcher</a>
-            <a href="#definepitcher" class="item">Define Pitcher</a>
-            <a href="#pitchcreator" class="item">Pitch Creator</a>
-            <a href="#teamdef" class="item">Team Defense</a>
-            <a href="#playerdef" class="item">Player Defense</a>
+            <a href="#ipitch" class="item disabled">iPitcher</a>
+            <a href="#definepitcher" class="item disabled">Define Pitcher</a>
+            <a href="#pitchcreator" class="item disabled">Pitch Creator</a>
+            <a href="#teamdef" class="item disabled">Team Defense</a>
+            <a href="#playerdef" class="item disabled">Player Defense</a>
         </div>    
         <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

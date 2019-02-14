@@ -40,6 +40,10 @@ var app = {
         console.log('Received Event: ' + id);
         $(function() {
             console.log('function start');
+            /* chage page to home */
+            $.mobile.changePage( "#home", {
+                changeHash: false
+              });
         });
         $( document ).on( "pagecontainerchange", function( e ) {
             var page = $( ".ui-page-active" ).attr('id');
