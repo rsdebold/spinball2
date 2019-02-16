@@ -1,6 +1,6 @@
 ## Contributing
 
-Thank you for your interest in contributing to the Hello World PhoneGap Template.
+Spinball iPitch Version 2.
 
 #### Issues
 

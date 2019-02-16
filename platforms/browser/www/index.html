@@ -63,11 +63,54 @@
 
 <body data-enhance="false">
     <div data-enhance="false" class="ui red top fixed fluid borderless inverted menu">
-        <a href="#home" class="item"><i data-enhance="false" class="home icon"></i></a>
-        <h3 class="header item">Spinball Sports iPitch</h3>
-        <div class="right menu">
-            <a href="#settings" class="item"><i class="settings icon"></i></a>
+        <div id="main-menu" class="ui dropdown icon item">
+            <i class="bars icon"></i>
+            <div class="menu">
+                <a class="item">
+                    <i class="baseball ball icon"></i>
+                    iPitcher
+                </a>
+                <a class="item">
+                    <i class="id card icon"></i>
+                    Custom Pitcher
+                </a>
+                <a class="item">
+                    <i class="edit icon"></i>
+                    Custom Pitch Creator
+                </a>
+                <a class="item">
+                    <i class="users icon"></i>
+                    Team Defense
+                </a>
+                <a class="item">
+                    <i class="user icon"></i>
+                    Individual Defense
+                </a>
+                <div class="divider"></div>
+                <a class="item">
+                    <i class="sliders horizontal icon"></i>
+                    Calibrate
+                </a>
+                <a class="item">
+                    <i class="tachometer alternate icon"></i>
+                    Diagnostics
+                </a>
+                <a href="#settings" class="item">
+                    <i class="cogs icon"></i>
+                    Settings
+                </a>
+                <div class="divider"></div>
+                <a class="item">
+                    <i class="question icon"></i>
+                    Help
+                </a>
+                <a class="item">
+                    <i class="info icon"></i>
+                    About
+                </a>
+            </div>
         </div>
+        <h3 class="header item">Spinball Sports iPitch</h3>
     </div>
     <div data-role="page" id="init">
         <div class="ui text">
@@ -142,18 +185,44 @@
             </div>
             </div>
         <div data-role="page" id="settings">
-                <h2 class="ui header">&nbsp;</h2>
-                <div class="ui fluid basic segment">
-                settings page
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">             
+                    <form id="form-settings" class="ui form">
+                            <h4 class="ui dividing header">Network Settings</h4>
+                            <div class="inline field">
+                                    <label>Machine Ip</label>
+                                    <input type="text" name="machine[ip]" placeholder="ip address">
+                            </div>
+                            <div class="inline field">
+                                <label>Machine Port</label>
+                                <input type="text" name="machine[port]" placeholder="port">
+                            </div>
+                            <div class="inline field">
+                                    <label>Cloud URL</label>
+                                    <input type="text" name="cloud[url]" placeholder="url">
+                            </div>
+                            <div class="inline field">
+                                    <label>Email</label>
+                                    <input type="text" name="user[email]" placeholder="email">
+                            </div>
+                            <div class="inline field">
+                                <label>Password</label>
+                                <input type="text" name="user[password]" placeholder="password">
+                            </div>
+        
+                            <h4 class="ui dividing header">Sport Settings</h4>
+                                <div class="inline field">
+                                  <input type="text" name="sport" placeholder="sport">
+                                </div>
+                                <div class="inline field">
+                                  <input type="text" name="velocityLabel" placeholder="velocity label">
+                                </div>
+
+                    </form>             
             </div>
         </div>
                         
-        <div class="ui red fluid five item bottom fixed inverted menu">
-            <a href="#ipitch" class="item disabled">iPitcher</a>
-            <a href="#definepitcher" class="item disabled">Define Pitcher</a>
-            <a href="#pitchcreator" class="item disabled">Pitch Creator</a>
-            <a href="#teamdef" class="item disabled">Team Defense</a>
-            <a href="#playerdef" class="item disabled">Player Defense</a>
+        <div class="ui red fluid bottom fixed inverted menu">
         </div>    
         <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

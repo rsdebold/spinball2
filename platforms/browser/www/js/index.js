@@ -17,6 +17,18 @@
  * under the License.
  */
 var app = {
+    defaults: {
+        version: '0.1.0a',
+        sport: 'BB',
+        speedDisplay: 'MPH',
+        country: 'US',
+        pitchSettings: {
+            'BB':{
+                'columns':['Speed %','Spin %','LH side','LH 3/4','LH Over','Vertical','RH Over','RH 3/4','RH Side'],
+                '2SFB':[100,100,210,180,150,90,30,0,330]
+            }
+        }
+    },
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -39,6 +51,7 @@ var app = {
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
         $(function() {
+            $('#main-menu').dropdown();
             console.log('function start');
             /* chage page to home */
             $.mobile.changePage( "#home", {

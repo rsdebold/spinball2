@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.spinball2" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.spinball2" version="0.1.0a" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>spinball2</name>
     <description>
         Spinball Sports iPitch version 2.
     </description>
-    <author email="supportrsdebold@yahoo.com" href="http://cypos.com">
+    <author email="rsdebold@yahoo.com" href="http://cypos.com">
         Spinball Application team
     </author>
     <content src="index.html" />
