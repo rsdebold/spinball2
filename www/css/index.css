@@ -36,12 +36,9 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-    zfont-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    zfont-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    ztext-transform:uppercase;
     width:100%;
 }
 
@@ -67,15 +64,6 @@ body {
         margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
     }
-}
-
-zh1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
 }
 
 .event {
@@ -112,4 +100,29 @@ zh1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+/* roundslider */
+#throw-left .rs-handle  {
+    border: 1px solid transparent;
+    border-width: 6px 60px 6px 4px;
+}
+
+#throw-left .rs-tooltip  {
+    top: 75%;
+    font-size: 11px;
+}
+#throw-left .rs-tooltip div  {
+    text-align: center;
+    background: orange;
+    color: white;
+    border-radius: 4px;
+    padding: 1px 5px 2px;
+    margin-top: 4px;
+}
+#throw-left .rs-range-color  {
+    background-color: red;
+}
+#throw-left .rs-path-color  {
+    background-color: red;
 }

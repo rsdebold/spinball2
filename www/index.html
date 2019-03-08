@@ -40,16 +40,22 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="js/semantic/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/nouislider.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/roundslider.min.css" />
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script>
         $( document ).on( "mobileinit", function() {
             console.log('mobileinit');
             $.mobile.ignoreContentEnabled = true;
             $.mobile.page.prototype.options.domCache = false;
+            $.mobile.changePage.defaults.changeHash = false;
         });
     </script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="js/semantic/semantic.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/roundslider.min.js"></script>
+    <script src="js/jquery.knob.min.js"></script>
     <style type="text/css">
         .zzui-mobile .ui-page-active {
           display: contents!important;
@@ -57,8 +63,8 @@
         .ui-loader {
             display: none !important;
         }
-      </style>
-        <title>Spinball</title>
+    </style>
+    <title>Spinball</title>
 </head>
 
 <body data-enhance="false">
@@ -66,32 +72,32 @@
         <div id="main-menu" class="ui dropdown icon item">
             <i class="bars icon"></i>
             <div class="menu">
-                <a class="item">
+                <a href="#ipitch" class="item">
                     <i class="baseball ball icon"></i>
                     iPitcher
                 </a>
-                <a class="item">
+                <a href="#custompitcher" class="item">
                     <i class="id card icon"></i>
                     Custom Pitcher
                 </a>
-                <a class="item">
+                <a href="#pitchcreator" class="item">
                     <i class="edit icon"></i>
                     Custom Pitch Creator
                 </a>
-                <a class="item">
+                <a href="#teamdef" class="item">
                     <i class="users icon"></i>
                     Team Defense
                 </a>
-                <a class="item">
+                <a href="#individualdef" class="item">
                     <i class="user icon"></i>
                     Individual Defense
                 </a>
                 <div class="divider"></div>
-                <a class="item">
+                <a href="#calibrate" class="item">
                     <i class="sliders horizontal icon"></i>
                     Calibrate
                 </a>
-                <a class="item">
+                <a href="#diagnostics" class="item">
                     <i class="tachometer alternate icon"></i>
                     Diagnostics
                 </a>
@@ -100,11 +106,11 @@
                     Settings
                 </a>
                 <div class="divider"></div>
-                <a class="item">
+                <a href="#help" class="item">
                     <i class="question icon"></i>
                     Help
                 </a>
-                <a class="item">
+                <a href="#about" class="item">
                     <i class="info icon"></i>
                     About
                 </a>
@@ -112,6 +118,7 @@
         </div>
         <h3 class="header item">Spinball Sports iPitch</h3>
     </div>
+    <!-- start of page fragments -->
     <div data-role="page" id="init">
         <div class="ui text">
             <h2 class="ui header">&nbsp;</h2>
@@ -131,100 +138,426 @@
             </div>
         </div>
     </div>
+
     <div data-role="page" id="home">
-            <h2 class="ui header">&nbsp;</h2>
-            <div class="ui fluid basic segment">
-                <div class="ui warning message">
-                    <div class="ui header">
-                        <i class="exclamation triangle icon"></i>
-                        <div class="content">
-                            Before using the Spinball pitching machine please adhere to the following warnnings
-                        </div>
+        <h2 class="ui header">&nbsp;</h2>
+        <div class="ui fluid basic segment">
+            <div class="ui info message">
+                <div class="ui header">
+                    <i class="exclamation triangle icon"></i>
+                    <div class="content">
+                        Before using the Spinball pitching machine please adhere to the following warnnings
                     </div>
-                    <ul class="list">
-                        <li>Calibrate Spinball pitching machine before first use or whenever the Spinball pitching machine has been moved</li>
-                        <li>Always throw test pitches to make sure the Spinball pitching machine is throwing strikes before allowing a batter to hit</li>
-                        <li>The Spinball pitching machine will throw both balls and strikes. Batters must always wear a helmet when hitting picthes thrown by the Spinball pitching machine</li>
-                        <li>For best accuracy when using the Spinball pitching machine do not mix types or quality of balls being thrown by the Spinball pitchign machine</li>
-                    </ul>
-                </div> 
-                <button class="fluid primary ui button">
-                    <i class="wifi icon"></i>
-                    Connect to iPitchxx accesspoint
-                </button>
-            </div>
+                </div>
+                <ul class="list">
+                    <li>Calibrate Spinball pitching machine before first use or whenever the Spinball pitching machine has been moved</li>
+                    <li>Always throw test pitches to make sure the Spinball pitching machine is throwing strikes before allowing a batter to hit</li>
+                    <li>The Spinball pitching machine will throw both balls and strikes. Batters must always wear a helmet when hitting picthes thrown by the Spinball pitching machine</li>
+                    <li>For best accuracy when using the Spinball pitching machine do not mix types or quality of balls being thrown by the Spinball pitchign machine</li>
+                </ul>
+            </div> 
+            <button class="fluid primary ui button">
+                <i class="wifi icon"></i>
+                Connect to iPitchxx accesspoint
+            </button>
         </div>
+    </div>
+        
         <div data-role="page" id="ipitch">
-                <h2 class="ui header">&nbsp;</h2>
-                <div class="ui fluid basic segment">
-                ipitch page
+            <h1 class="ui header">&nbsp;</h1>
+            <div class="ui fluid basic segment">
+                <h3 class="ui block header">
+                    <i class="baseball ball icon"></i>
+                    <div class="content">
+                        iPitcher
+                    </div>
+                </h3>
+
+                <div class="ui segment">
+
+                    <form class="ui form" id="calibrate-form">
+
+                        <div class="field">
+                            <div class="ui stackable centered grid container">
+
+                                <div class="two column row">
+                                    <div class="four wide column">
+                                        <input id="top-speed" class="knob" data-height="130" data-width="150" data-min=0 data-max=100 data-angleOffset=-125 data-angleArc=250 data-fgColor="black" value="0">
+                                    </div>
+                                    <div>
+                                        <div>
+
+                                        </div>
+                                    </div>
+                                    <div class="four wide column">
+                                        <table></table>
+                                        <input id="top-spin" class="knob" data-height="130" data-width="150" data-min=0 data-max=3000 data-angleOffset=-125 data-angleArc=250 data-fgColor="black" value="0">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
             </div>
         </div> 
-        <div data-role="page" id="definepitcher">
-                <h2 class="ui header">&nbsp;</h2>
-                <div class="ui fluid basic segment">
-                define pitcher
+        
+        <div data-role="page" id="custompitcher">
+            <h1 class="ui header">&nbsp;</h1>
+
+            <div class="ui fluid basic segment">
+                <h3 class="ui block header">
+                    <i class="id card icon"></i>
+                    <div class="content">
+                        Cumstom Pitcher Edit
+                    </div>
+                </h3>
+                <div class="ui segment">
+
+                    <div class="card">
+                        <div class="ui wrench icon">
+                            <a class="ui wrench icon"></a>
+                        </div>
+                        <div class="content">
+                            <div class="header">
+                            Player Name
+                            </div>
+                            <div class="meta">
+                            Friends of Veronika
+                            </div>
+                            <div class="description">
+                            Elliot requested permission to view your contact details
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <div class="ui primary button">Save</div>
+                            <div class="ui button">Cancel</div>
+                        </div>
+                    </div> 
+
+                </div>
             </div>
         </div>
+        
         <div data-role="page" id="pitchcreator">
-                <h2 class="ui header">&nbsp;</h2>
-                <div class="ui fluid basic segment">
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
                 pitch creator
             </div>
         </div>
+        
         <div data-role="page" id="teamdef">
-                <h2 class="ui header">&nbsp;</h2>
-                <div class="ui fluid basic segment">
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
                 team defense
             </div>
         </div>
-        <div data-role="page" id="playerdef">
-                <h2 class="ui header">&nbsp;</h2>
+        
+        <div data-role="page" id="individualdef">
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
+                individual defense
+            </div>
+        </div>
+        
+        <div data-role="page" id="calibrate">
+            <h1 class="ui header">&nbsp;</h2>
                 <div class="ui fluid basic segment">
-                player defense
+                <h3 class="ui block header">
+                    <i class="sliders horizontal icon"></i>
+                    <div class="content">
+                        Calibrate Spinball Machine
+                    </div>
+                </h3>
+                <div class="ui info message" id="calibrate-message">
+                    <i class="close icon"></i>
+                    <div class="ui header">
+                        <i class="exclamation icon"></i>
+                        <div class="content">
+                            This screen is used to aim and calibrate the Spinball machine based on air density and ball condition							
+                        </div>
+                    </div>
+                    <ul class="list">
+                        <li>Step 1: Aim the Spinball machine for throwing a 70 mph fastball.</li>
+                        <li>Step 2: Adjust the Spinball machine for throwing a curve.</li>
+                        <li>For large adjustments, perform the calibration routine twice.</li>
+                    </ul>
+                </div> 
+                    <div class="ui segment">
+                        <form class="ui form" id="calibrate-form">
+                            <div class="field" style="margin-bottom: 4em;">
+                                <a id="distToPlabelLabel" class="ui green label" style="margin-bottom: 1em;">
+                                    Distance To Plate
+                                    <div id="distToPlatValue" class="detail">60.6</div>
+                                </a>
+                                <div id="distToPlateSlider"></div>
+                            </div>
+                            <h4 class="ui horizontal divider header">
+                                <i class="crosshairs icon"></i>
+                                <div class="content">
+                                    Machine Aiming
+                                </div> 
+                            </h4>
+                            <div class="ui grid">
+                                    <div class="two column row">
+                                            <div class="column">
+                                                <a style="text-align: -webkit-center;" class="ui pointing below green fluid label">Fasball Aiming</a>
+                                            </div>
+                                            <div class="column">
+                                                <a style="text-align: -webkit-center;" class="ui pointing below green fluid label">Curveball Aiming</a>
+                                            </div>
+                                        </div>
+                                        <div class="two column row">
+                                    <div class="column">
+                                        
+                                        <div class="ui middle aligned four column centered grid">
+                                            <div class="row">
+                                                <div class="column">
+                                                    <div class="ui icon button">
+                                                        <i class="icon chevron left"></i>
+                                                    </div>                                                    
+                                                </div>
+                                                    <div class="column">
+                                                        <div class="ui icon button hide" style="margin-bottom:1em;">
+                                                            <i class="icon chevron up"></i>
+                                                        </div> 
+                                                        <div class="ui green mini label">
+                                                                Left 3"
+                                                              </div>
+                                                        <div class="ui icon button" style="margin-top:1em;">
+                                                            <i class="icon chevron down"></i>
+                                                        </div>                                                 
+                                                </div>
+                                                    <div class="column">
+                                                    
+                                                            <div class="ui icon button">
+                                                                    <i class="icon chevron right"></i>
+                                                                </div>                                                     
+                                                    </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    <div class="column">
+                                            
+                                        <div class="ui middle aligned four column centered grid">
+                                            <div class="row">
+                                                <div class="column">
+                                                
+                                                        <div class="ui icon button">
+                                                                <i class="icon chevron left"></i>
+                                                            </div>                                                    
+                                                </div>
+                                                <div class="column">
+                                                        <div class="ui icon button" style="margin-bottom:1em;visibility:hidden;">
+                                                                <i class="icon chevron up"></i>
+                                                            </div> 
+                                                                <div class="ui icon button" style="margin-top:1em;visibility:hidden;">
+                                                                    <i class="icon chevron down"></i>
+                                                                </div>                                                 </div>
+                                                <div class="column">
+                                                
+                                                        <div class="ui icon button">
+                                                                <i class="icon chevron right"></i>
+                                                            </div>                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="two column row">
+                                    <div class="column">
+                                            <div class="fluid ui icon button">
+                                                    <i class="icon arrow up"></i>
+                                                    Pitch Fastball
+                                                </div>
+                                    </div>
+                                    <div class="column">
+                                            <div class="fluid ui icon button">
+                                                    <i class="icon reply"></i>
+                                                    Pitch Curvball
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
             </div>
+        
+        <div data-enhance="false" data-role="page" id="diagnostics">
+            <h1 class="ui header">&nbsp;</h1>
+            <div class="ui fluid basic segment">
+                <h3 class="ui block header">
+                    <i class="tachometer alternate icon"></i>
+                    <div class="content">
+                        Spinball Machine Diagnostics
+                    </div>
+                </h3>
+                <div class="ui info message" id="diagnostics-message">
+                    <i class="close icon"></i>
+                    <div class="ui header">
+                        <i class="exclamation icon"></i>
+                        <div class="content">
+                            This screen is used for troubleshooting the Spinball pitching machine. DO NOT USE the diagnostics functions on this screen to throw pitches with the Spinball machine to a batter.							
+                        </div>
+                    </div>
+                </div> 
+                <div class="ui segment">
+                    <form class="ui form" id="diagnostics-form">
+                            <h4 class="ui horizontal divider header">
+                                <i class="sync icon"></i>
+                                <div class="content">
+                                    Wheel Speed
+                                </div> 
+                            </h4>
+                            <div class="field">
+                                <div class="ui stackable centered grid container">
+                                        <div class="four wide column">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                            <input id="left-wheel" class="knob" data-height="130" data-width="150" data-min=0 data-max=3069 data-angleOffset=-125 data-angleArc=250 data-fgColor="black" value="0">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                            <a style="text-align: -webkit-center;" class="ui pointing green fluid label">Left Wheel</a>
+                                            </td>
+                                            </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="four wide column">
+                                                <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                    <input id="bottom-wheel" class="knob" data-height="130" data-width="150" data-min=0 data-max=3069 data-angleOffset=-125 data-angleArc=250 data-fgColor="black" value="0">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                            <a style="text-align: -webkit-center;" class="ui pointing green fluid label">Bottom Wheel</a>
+                                        </td>
+                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                        <div class="four wide column">
+                                                <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                            <input id="right-wheel" class="knob" data-height="130" data-width="150" data-min=0 data-max=3069 data-angleOffset=-125 data-angleArc=250 data-fgColor="black" value="0">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                    <a style="text-align: -webkit-center;" class="ui pointing green fluid label">Right Wheel</a>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                                </div>
+                            </div>
+                        
+                        <h4 class="ui horizontal divider header">
+                            <i class="cog icon"></i>
+                            <div class="content">
+                                Stepper Motors
+                            </div> 
+                        </h4>
+
+                        <div class="field" style="margin-bottom: 4em;">
+                            <a id="horControlLabel" class="ui pointing below green label" style="margin-bottom: 1em;">
+                                Horizontal Control
+                                <div id="horControlValue" class="detail">0</div>
+                            </a>
+                            <div id="horControl"></div>
+                        </div>
+                        <div class="field" style="margin-bottom: 4em;">
+                            <a id="verControlLabel" class="ui pointing below green label" style="margin-bottom: 1em;">
+                                Veritical Control
+                                <div id="verControlValue" class="detail">0</div>
+                            </a>
+                            <div id="verControl"></div>
+                        </div>
+
+                        </form>
+                </div>
             </div>
+        </div>
+            
         <div data-role="page" id="settings">
             <h2 class="ui header">&nbsp;</h2>
             <div class="ui fluid basic segment">             
-                    <form id="form-settings" class="ui form">
-                            <h4 class="ui dividing header">Network Settings</h4>
-                            <div class="inline field">
-                                    <label>Machine Ip</label>
-                                    <input type="text" name="machine[ip]" placeholder="ip address">
-                            </div>
-                            <div class="inline field">
-                                <label>Machine Port</label>
-                                <input type="text" name="machine[port]" placeholder="port">
-                            </div>
-                            <div class="inline field">
-                                    <label>Cloud URL</label>
-                                    <input type="text" name="cloud[url]" placeholder="url">
-                            </div>
-                            <div class="inline field">
-                                    <label>Email</label>
-                                    <input type="text" name="user[email]" placeholder="email">
-                            </div>
-                            <div class="inline field">
-                                <label>Password</label>
-                                <input type="text" name="user[password]" placeholder="password">
-                            </div>
-        
-                            <h4 class="ui dividing header">Sport Settings</h4>
-                                <div class="inline field">
-                                  <input type="text" name="sport" placeholder="sport">
-                                </div>
-                                <div class="inline field">
-                                  <input type="text" name="velocityLabel" placeholder="velocity label">
-                                </div>
+                <form id="form-settings" class="ui form">
+                    <h4 class="ui dividing header">Network Settings</h4>
+                    <div class="inline field">
+                            <label>Machine Ip</label>
+                            <input type="text" name="machine[ip]" placeholder="ip address">
+                    </div>
+                    <div class="inline field">
+                        <label>Machine Port</label>
+                        <input type="text" name="machine[port]" placeholder="port">
+                    </div>
+                    <div class="inline field">
+                            <label>Cloud URL</label>
+                            <input type="text" name="cloud[url]" placeholder="url">
+                    </div>
+                    <div class="inline field">
+                            <label>Email</label>
+                            <input type="text" name="user[email]" placeholder="email">
+                    </div>
+                    <div class="inline field">
+                        <label>Password</label>
+                        <input type="text" name="user[password]" placeholder="password">
+                    </div>
 
-                    </form>             
+                    <h4 class="ui dividing header">Sport Settings</h4>
+                    <div class="inline field">
+                        <input type="text" name="sport" placeholder="sport">
+                    </div>
+                    <div class="inline field">
+                        <input type="text" name="velocityLabel" placeholder="velocity label">
+                    </div>
+
+                </form>             
             </div>
         </div>
-                        
-        <div class="ui red fluid bottom fixed inverted menu">
-        </div>    
-        <script type="text/javascript" src="cordova.js"></script>
+
+        <div data-role="page" id="help">
+            <h1 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
+                    <h3 class="ui block top attached header">
+                        <i class="question icon"></i>
+                        <div class="content">
+                            Help
+                        </div>
+                    </h4>
+                    <div class="ui attached segment">
+                    help page
+                    </div>
+            </div>
+        </div>
+
+        <div data-role="page" id="about">
+            <h2 class="ui header">&nbsp;</h2>
+            <div class="ui fluid basic segment">
+                about
+            </div>
+        </div>
+        
+    <!-- end of page fragments -->
+
+    <div class="ui red fluid bottom fixed inverted menu">
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
